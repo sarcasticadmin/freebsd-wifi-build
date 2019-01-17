@@ -1,0 +1,87 @@
+U-Boot 1.1.4 (May 27 2011 - 14:58:01)                                                                                                                                                                                          [115/175]
+
+DNI HW ID: 29763654 flash 16MB RAM 128MB (ar7100) U-boot dni25 V0.1
+DRAM:  b8050000: 0xc0140180
+128 MB
+Top of RAM usable for U-Boot at: 88000000
+Reserving 265k for U-Boot at: 87fbc000
+Reserving 192k for malloc() at: 87f8c000
+Reserving 44 Bytes for Board Info at: 87f8bfd4
+Reserving 36 Bytes for Global Data at: 87f8bfb0
+Reserving 128k for boot params() at: 87f6bfb0
+Stack Pointer at: 87f6bf98
+Now running in RAM - U-Boot at: 87fbc000
+id read 0x100000ff
+flash size 16MB, sector count = 256
+Flash: 16 MB
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   ag7100_enet_initialize...
+CHH:mac: 0 if: 2
+CHH:mac:verify: 0 if: 00000002
+: cfg1 0xf cfg2 0x7014
+in rtl8366s_phy_setup mac=-1476803788
+after rtl8366s_initChip ret=0
+eth0: c4:04:15:9b:46:60
+eth0 up
+CHH:mac: 1 if: 1
+CHH:mac:verify: 1 if: 00000001
+: cfg1 0xf cfg2 0x7014
+in rtl8366s_phy_setup mac=-1476803308
+eth1: c4:04:15:9b:46:61
+eth1 up
+eth0, eth1
+Trying eth0
+: unit 0 phy is up...RGMii 1000Mbps full duplex
+#259:ag7100_set_mac_from_link
+: pll reg 0x18050010: 0x11110000
+: cfg_1: 0x1ff0000
+: cfg_2: 0x3ff
+: cfg_3: 0x8001ff
+: cfg_4: 0xffff
+: cfg_5: 0xfffef
+: done cfg2 0x7215 ifctl 0x40605060 miictrl 0x22
+
+ Client starts...[Listening] for ADVERTISE...TTT
+Retry count exceeded; boot the image as usual
+
+ nmrp server is stopped or failed !
+Hit any key to stop autoboot:  0
+ar7100>
+ar7100>
+ar7100> fsinfo
+### filesystem type is SQUASHFS
+SquashFS version: 3.0
+Files: 3
+Bytes_used: -2013873176
+Block_size: 65536
+Inodes are compressed
+Data is compressed
+Fragments are compressed
+Check data is not present in the filesystem
+Fragments are present in the filesystem
+Always_use_fragments option is not specified
+Duplicates are removed
+Filesystem size -2013873176 bytes
+Number of fragments 0
+Number of inodes 3
+Number of uids 1
+Number of gids 0
+ar7100> printenv
+bootargs=console=ttyS0,115200 root=31:02 rootfstype=jffs2 init=/sbin/init mtdparts=ar7100-nor0:256k(uboot),128k(env),6144k(rootfs),64k(caldata),1024k(uImage)
+bootcmd=fsload 80800000 image/uImage;bootm 80800000
+bootdelay=1
+baudrate=115200
+ipaddr=192.168.1.2
+serverip=192.168.1.1
+clearenv=erase 0xbf050000 +0x10000
+stdin=serial
+stdout=serial
+stderr=serial
+ethact=eth0
+
+Environment size: 366/65532 bytes
+ar7100>
